@@ -1,15 +1,26 @@
 package com.appliances;
 
-
 import java.util.List;
 import java.util.Comparator;
 import java.util.Scanner;
+import java.io.IOException;
 
 public class Main {
 
     public static void main(String[] args) {
-        // Завантаження приладів з файлу
-        List<Appliance> appliances = ApplianceLoader.loadAppliancesFromFile("appliances.txt");
+        // Завантаження приладів з файлу в ресурсах
+        List<Appliance> appliances = null;
+        try {
+            appliances = ApplianceLoader.loadAppliancesFromStream(Main.class.getClassLoader().getResourceAsStream("appliances.txt"));
+        } catch (IOException e) {
+            System.out.println("Error loading appliances from file: " + e.getMessage());
+            return;
+        }
+
+        if (appliances == null || appliances.isEmpty()) {
+            System.out.println("No appliances loaded.");
+            return;
+        }
 
         // Увімкнення приладів
         appliances.get(0).plugIn(); // Наприклад, холодильник

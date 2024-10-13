@@ -1,3 +1,0 @@
-Fridge,LG,200
-WashingMachine,Samsung,1500
-TV,Sony,300

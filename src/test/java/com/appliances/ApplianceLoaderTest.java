@@ -3,8 +3,7 @@ package com.appliances;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.List;
@@ -21,28 +20,30 @@ class ApplianceLoaderTest {
             writer.write("TV,Sony,150\n");
         }
 
-        // Act: завантажуємо прилади з тимчасового файлу
-        List<Appliance> appliances = ApplianceLoader.loadAppliancesFromFile(tempFile.toString());
+        // Act: завантажуємо прилади з тимчасового файлу через InputStream
+        try (InputStream inputStream = Files.newInputStream(tempFile)) {
+            List<Appliance> appliances = ApplianceLoader.loadAppliancesFromStream(inputStream);
 
-        // Assert: перевіряємо, що прилади були завантажені коректно
-        assertEquals(3, appliances.size(), "Повинно бути завантажено 3 прилади");
+            // Assert: перевіряємо, що прилади були завантажені коректно
+            assertEquals(3, appliances.size(), "Повинно бути завантажено 3 прилади");
 
-        Appliance fridge = appliances.get(0);
-        assertTrue(fridge instanceof Fridge, "Перший прилад повинен бути холодильником");
-        assertEquals("Samsung", fridge.getName(), "Назва холодильника повинна бути Samsung");
-        assertEquals(300, fridge.getPower(), "Потужність холодильника повинна бути 300W");
+            Appliance fridge = appliances.get(0);
+            assertTrue(fridge instanceof Fridge, "Перший прилад повинен бути холодильником");
+            assertEquals("Samsung", fridge.getName(), "Назва холодильника повинна бути Samsung");
+            assertEquals(300, fridge.getPower(), "Потужність холодильника повинна бути 300W");
 
-        Appliance washingMachine = appliances.get(1);
-        assertTrue(washingMachine instanceof WashingMachine, "Другий прилад повинен бути пральною машиною");
-        assertEquals("LG", washingMachine.getName(), "Назва пральної машини повинна бути LG");
-        assertEquals(2000, washingMachine.getPower(), "Потужність пральної машини повинна бути 2000W");
+            Appliance washingMachine = appliances.get(1);
+            assertTrue(washingMachine instanceof WashingMachine, "Другий прилад повинен бути пральною машиною");
+            assertEquals("LG", washingMachine.getName(), "Назва пральної машини повинна бути LG");
+            assertEquals(2000, washingMachine.getPower(), "Потужність пральної машини повинна бути 2000W");
 
+            Appliance tv = appliances.get(2);
+            assertTrue(tv instanceof TV, "Третій прилад повинен бути телевізором");
+            assertEquals("Sony", tv.getName(), "Назва телевізора повинна бути Sony");
+            assertEquals(150, tv.getPower(), "Потужність телевізора повинна бути 150W");
+        }
 
-        Appliance tv = appliances.get(2);
-        assertTrue(tv instanceof TV, "Третій прилад повинен бути телевізором");
-        assertEquals("Sony", tv.getName(), "Назва телевізора повинна бути Sony");
-        assertEquals(150, tv.getPower(), "Потужність телевізора повинна бути 150W");
-
+        // Очищення: видалення тимчасового файлу
         Files.deleteIfExists(tempFile);
     }
 
@@ -55,12 +56,15 @@ class ApplianceLoaderTest {
         }
 
         // Act & Assert: перевіряємо, що буде викликано виключення через невідомий тип приладу
-        Exception exception = assertThrows(IllegalArgumentException.class, () -> {
-            ApplianceLoader.loadAppliancesFromFile(tempFile.toString());
-        });
+        try (InputStream inputStream = Files.newInputStream(tempFile)) {
+            Exception exception = assertThrows(IllegalArgumentException.class, () -> {
+                ApplianceLoader.loadAppliancesFromStream(inputStream);
+            });
 
-        assertTrue(exception.getMessage().contains("Unknown appliance type"), "Повідомлення про помилку повинно містити 'Unknown appliance type'");
+            assertTrue(exception.getMessage().contains("Unknown appliance type"), "Повідомлення про помилку повинно містити 'Unknown appliance type'");
+        }
 
+        // Очищення: видалення тимчасового файлу
         Files.deleteIfExists(tempFile);
     }
 }

@@ -6,10 +6,14 @@ import java.util.List;
 
 public class ApplianceLoader {
 
-    public static List<Appliance> loadAppliancesFromFile(String fileName) {
+    public static List<Appliance> loadAppliancesFromStream(InputStream inputStream) throws IOException {
         List<Appliance> appliances = new ArrayList<>();
 
-        try (BufferedReader reader = new BufferedReader(new FileReader(fileName))) {
+        if (inputStream == null) {
+            throw new FileNotFoundException("Resource not found");
+        }
+
+        try (BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream))) {
             String line;
             while ((line = reader.readLine()) != null) {
                 String[] params = line.split(",");
@@ -31,8 +35,6 @@ public class ApplianceLoader {
                         throw new IllegalArgumentException("Unknown appliance type: " + type);
                 }
             }
-        } catch (IOException e) {
-            System.out.println("Error reading file: " + e.getMessage());
         }
 
         return appliances;

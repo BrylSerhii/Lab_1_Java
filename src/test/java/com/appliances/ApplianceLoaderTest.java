@@ -27,25 +27,22 @@ class ApplianceLoaderTest {
         // Assert: перевіряємо, що прилади були завантажені коректно
         assertEquals(3, appliances.size(), "Повинно бути завантажено 3 прилади");
 
-        // Перевіряємо перший прилад (Fridge)
         Appliance fridge = appliances.get(0);
         assertTrue(fridge instanceof Fridge, "Перший прилад повинен бути холодильником");
         assertEquals("Samsung", fridge.getName(), "Назва холодильника повинна бути Samsung");
         assertEquals(300, fridge.getPower(), "Потужність холодильника повинна бути 300W");
 
-        // Перевіряємо другий прилад (WashingMachine)
         Appliance washingMachine = appliances.get(1);
         assertTrue(washingMachine instanceof WashingMachine, "Другий прилад повинен бути пральною машиною");
         assertEquals("LG", washingMachine.getName(), "Назва пральної машини повинна бути LG");
         assertEquals(2000, washingMachine.getPower(), "Потужність пральної машини повинна бути 2000W");
 
-        // Перевіряємо третій прилад (TV)
+
         Appliance tv = appliances.get(2);
         assertTrue(tv instanceof TV, "Третій прилад повинен бути телевізором");
         assertEquals("Sony", tv.getName(), "Назва телевізора повинна бути Sony");
         assertEquals(150, tv.getPower(), "Потужність телевізора повинна бути 150W");
 
-        // Delete temp file after test
         Files.deleteIfExists(tempFile);
     }
 
@@ -64,7 +61,6 @@ class ApplianceLoaderTest {
 
         assertTrue(exception.getMessage().contains("Unknown appliance type"), "Повідомлення про помилку повинно містити 'Unknown appliance type'");
 
-        // Delete temp file after test
         Files.deleteIfExists(tempFile);
     }
 }

@@ -1,10 +1,5 @@
 package com.appliances;
 
-import com.appliances.Appliance;
-import com.appliances.Fridge;
-import com.appliances.TV;
-import com.appliances.WashingMachine;
-
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;

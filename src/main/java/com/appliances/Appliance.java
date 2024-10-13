@@ -2,7 +2,7 @@ package com.appliances;
 
 public abstract class Appliance {
     private String name;
-    private int power; // Потужність у ватах
+    private int power;
     private boolean isPluggedIn;
 
     public Appliance(String name, int power) {

@@ -1,6 +1,5 @@
 package com.appliances;
 
-import com.appliances.ApplianceLoader;
 
 import java.util.List;
 import java.util.Comparator;
@@ -12,7 +11,7 @@ public class Main {
         // Завантаження приладів з файлу
         List<Appliance> appliances = ApplianceLoader.loadAppliancesFromFile("appliances.txt");
 
-        // Увімкнення деяких приладів
+        // Увімкнення приладів
         appliances.get(0).plugIn(); // Наприклад, холодильник
 
         // Підрахунок спожитої потужності

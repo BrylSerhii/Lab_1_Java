@@ -1,5 +1,10 @@
 package com.appliances;
 
+import com.appliances.models.Appliance;
+import com.appliances.models.Fridge;
+import com.appliances.models.TV;
+import com.appliances.models.WashingMachine;
+import com.appliances.utils.ApplianceLoader;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 

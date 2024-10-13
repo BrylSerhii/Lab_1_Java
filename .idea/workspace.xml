@@ -4,12 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="053f4a42-b037-4111-9966-9671dd22b367" name="Changes" comment="Full lab">
+    <list default="true" id="053f4a42-b037-4111-9966-9671dd22b367" name="Changes" comment="Updated ApplianceLoader to load appliances from an InputStream instead of a file path.&#10;Refactored Main class to load the appliances file from resources using InputStream.&#10;Modified ApplianceLoaderTest to reflect the new InputStream-based method, ensuring proper testing with temporary files.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/appliances.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/appliances/ApplianceLoader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/appliances/ApplianceLoader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/appliances/Appliance.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/appliances/models/Appliance.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/appliances/ApplianceLoader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/appliances/utils/ApplianceLoader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/appliances/Fridge.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/appliances/models/Fridge.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/appliances/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/appliances/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/appliances/TV.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/appliances/models/TV.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/appliances/WashingMachine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/appliances/models/WashingMachine.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/com/appliances/ApplianceLoaderTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/appliances/ApplianceLoaderTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/appliances/FridgeTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/appliances/FridgeTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -123,7 +127,7 @@
       <updated>1728583164500</updated>
       <workItem from="1728583165475" duration="2547000" />
       <workItem from="1728755784377" duration="7070000" />
-      <workItem from="1728803827533" duration="7617000" />
+      <workItem from="1728803827533" duration="8619000" />
     </task>
     <task id="LOCAL-00001" summary="Full lab">
       <option name="closed" value="true" />
@@ -141,7 +145,15 @@
       <option name="project" value="LOCAL" />
       <updated>1728811992172</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Updated ApplianceLoader to load appliances from an InputStream instead of a file path.&#10;Refactored Main class to load the appliances file from resources using InputStream.&#10;Modified ApplianceLoaderTest to reflect the new InputStream-based method, ensuring proper testing with temporary files.">
+      <option name="closed" value="true" />
+      <created>1728828325244</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1728828325244</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -149,7 +161,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Full lab" />
-    <option name="LAST_COMMIT_MESSAGE" value="Full lab" />
+    <MESSAGE value="Updated ApplianceLoader to load appliances from an InputStream instead of a file path.&#10;Refactored Main class to load the appliances file from resources using InputStream.&#10;Modified ApplianceLoaderTest to reflect the new InputStream-based method, ensuring proper testing with temporary files." />
+    <option name="LAST_COMMIT_MESSAGE" value="Updated ApplianceLoader to load appliances from an InputStream instead of a file path.&#10;Refactored Main class to load the appliances file from resources using InputStream.&#10;Modified ApplianceLoaderTest to reflect the new InputStream-based method, ensuring proper testing with temporary files." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

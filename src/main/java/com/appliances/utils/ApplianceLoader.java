@@ -1,4 +1,9 @@
-package com.appliances;
+package com.appliances.utils;
+
+import com.appliances.models.Appliance;
+import com.appliances.models.Fridge;
+import com.appliances.models.TV;
+import com.appliances.models.WashingMachine;
 
 import java.io.*;
 import java.util.ArrayList;

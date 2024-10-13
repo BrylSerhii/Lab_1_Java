@@ -1,5 +1,8 @@
 package com.appliances;
 
+import com.appliances.models.Appliance;
+import com.appliances.utils.ApplianceLoader;
+
 import java.util.List;
 import java.util.Comparator;
 import java.util.Scanner;

@@ -1,4 +1,4 @@
-package com.appliances;
+package com.appliances.models;
 
 public class Fridge extends Appliance {
 
